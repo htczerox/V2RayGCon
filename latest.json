@@ -1,11 +1,11 @@
 {
-  "version": "1.1.13.0",
-  "md5": "d316ca9c68862dbc66dc991dfdaf925b",
+  "version": "1.2.0.0",
+  "md5": "cf148a305af654736b53fa9ec4074122",
   "warnings": [
   ],
   "changes": [
-      "Re-support auto-update.",
-      "Fix bugs of subscription.",
-      "ProxySetter plug-in supports veeeery old windows 7 system."
+      "Support non-standard base64 string in subscription.(issue #3)",
+      "Adjust UI a little bit.",
+      "Fix a potential memory leaks."
   ]
 }
