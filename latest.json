@@ -1,11 +1,15 @@
 {
-  "version": "1.2.0.0",
-  "md5": "cf148a305af654736b53fa9ec4074122",
+  "version": "1.2.1.0",
+  "md5": "7f6c93954eeec7c8768643015ba761a6",
   "warnings": [
   ],
   "changes": [
-      "Support non-standard base64 string in subscription.(issue #3)",
-      "Adjust UI a little bit.",
-      "Fix a potential memory leaks."
+      "调整关机时的存盘逻辑（可能还有bug）",
+	  "选项窗口添加[默认值]分页",
+	  "Luna插件可以批量导入/导出脚本",
+	  "",
+      "Adjust save settings logic when system shutdown. (help wanted)",
+	  "Add tab-defaults in form option.",
+      "Luna plug-in supports import/export all scripts."      
   ]
 }
