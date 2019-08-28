@@ -1,13 +1,11 @@
 {
-  "version": "1.2.2.0",
-  "md5": "12e0ea2b13d78d1527a739a9f96795bb",
+  "version": "1.2.3.0",
+  "md5": "a5a91f12a6e94e7304d1c5808b82c879",
   "warnings": [
-      "https://github.com/UudrSgMEZ/V2RayGCon/releases/latest"
   ],
   "changes": [
-      "作者太懒没写更新内容，只留了个网址。",
+      "没啥变化，作者又水了一期更新。",
       "",
-      "The author is too lazy to write a update-log.",
-      "Only left a mystery URL."
+      "A few non-important update."
   ]
 }
