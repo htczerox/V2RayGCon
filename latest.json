@@ -1,11 +1,13 @@
 {
-  "version": "1.2.3.0",
-  "md5": "a5a91f12a6e94e7304d1c5808b82c879",
+  "version": "1.2.4.0",
+  "md5": "4f96baf4e45ef92a958070d26559699f",
   "warnings": [
   ],
   "changes": [
-      "没啥变化，作者又水了一期更新。",
+      "托盘图标添加角标。",
+      "ProxySetter插件支持热键。",
       "",
-      "A few non-important update."
+      "Add corner mark in notify icon.",
+      "ProxySetter plug-in supports global hotkey."
   ]
 }
