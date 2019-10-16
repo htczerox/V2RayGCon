@@ -1,13 +1,14 @@
 {
-  "version": "1.2.4.0",
-  "md5": "4f96baf4e45ef92a958070d26559699f",
+  "version": "1.2.5.0",
+  "md5": "df6decd69cca7918223a74af06ee38f1",
   "warnings": [
   ],
   "changes": [
-      "托盘图标添加角标。",
-      "ProxySetter插件支持热键。",
+      "全局代理模式角标从红色改为蓝色",
+      "支持从托盘图标切换服务器",
+      "支持从托盘图标切换代理模式（需开启ProxySetter插件）",
       "",
-      "Add corner mark in notify icon.",
-      "ProxySetter plug-in supports global hotkey."
+      "Corner mark of global proxy mode changes from red to blue.",
+      "Notify icon menu supports switching server"
   ]
 }
