@@ -380,9 +380,36 @@ namespace V2RayGCon.Lib.V2Ray
             }
         }
 
-        void ShowExitErrorMessage()
+        void ShowExitErrorMessage(int exitCode)
         {
-            MessageBox.Show(title + I18N.V2rayCoreExitAbnormally);
+            /*
+             * v2ray-core/main/main.go
+             * 23: Configuration error.
+             * -1: Failed to start.
+             */
+
+            /*
+             * https://stackoverflow.com/questions/4344923/process-exit-code-when-process-is-killed-forcibly
+             * 1: Killed forcibly.
+             */
+
+            string msg = string.Format(I18N.V2rayCoreExitAbnormally, title, exitCode);
+            switch (exitCode)
+            {
+                case 1:
+                    msg = title + @" " + I18N.KilledByUserOrOtherApp;
+                    break;
+                case 23:
+                    msg = title + @" " + I18N.HasFaultyConfig;
+                    break;
+                case -1:
+                    msg = title + @" " + I18N.CanNotStartPlsCheckLogs;
+                    break;
+                default:
+                    break;
+            }
+
+            MessageBox.Show(msg);
         }
 
         void OnCoreExited(object sender, EventArgs args)
@@ -394,7 +421,7 @@ namespace V2RayGCon.Lib.V2Ray
             if (err != 0)
             {
                 v2rayCore.Close();
-                VgcApis.Libs.Utils.RunInBackground(() => ShowExitErrorMessage());
+                VgcApis.Libs.Utils.RunInBackground(() => ShowExitErrorMessage(err));
             }
 
             // SendLog("Exit code: " + err);
