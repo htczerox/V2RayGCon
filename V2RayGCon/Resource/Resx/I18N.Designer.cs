@@ -178,6 +178,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 can not start. Please check logs. 的本地化字符串。
+        /// </summary>
+        internal static string CanNotStartPlsCheckLogs {
+            get {
+                return ResourceManager.GetString("CanNotStartPlsCheckLogs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Can find original server. Delete fail! 的本地化字符串。
         /// </summary>
         internal static string CantFindOrgServDelFail {
@@ -929,6 +938,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 can not start. Please check configuration. 的本地化字符串。
+        /// </summary>
+        internal static string HasFaultyConfig {
+            get {
+                return ResourceManager.GetString("HasFaultyConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Help 的本地化字符串。
         /// </summary>
         internal static string Help {
@@ -979,6 +997,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string InjectPackagingImportsFail {
             get {
                 return ResourceManager.GetString("InjectPackagingImportsFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 was killed by user or another app. 的本地化字符串。
+        /// </summary>
+        internal static string KilledByUserOrOtherApp {
+            get {
+                return ResourceManager.GetString("KilledByUserOrOtherApp", resourceCulture);
             }
         }
         
@@ -1652,7 +1679,7 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
-        ///   查找类似 exit abnormally.
+        ///   查找类似 {0} exited with error code {1}!
         ///Please check server configuration and log. 的本地化字符串。
         /// </summary>
         internal static string V2rayCoreExitAbnormally {

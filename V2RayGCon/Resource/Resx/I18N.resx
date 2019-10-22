@@ -415,7 +415,7 @@ Please use [Add new server] or [Replace server].</value>
     <value>Attach to v2ray-core process fail!</value>
   </data>
   <data name="V2rayCoreExitAbnormally" xml:space="preserve">
-    <value>exit abnormally.
+    <value>{0} exited with error code {1}!
 Please check server configuration and log.</value>
   </data>
   <data name="Options" xml:space="preserve">
@@ -698,5 +698,14 @@ No, abort.</value>
   </data>
   <data name="StopAllServers" xml:space="preserve">
     <value>Stop all servers</value>
+  </data>
+  <data name="CanNotStartPlsCheckLogs" xml:space="preserve">
+    <value>can not start. Please check logs.</value>
+  </data>
+  <data name="HasFaultyConfig" xml:space="preserve">
+    <value>can not start. Please check configuration.</value>
+  </data>
+  <data name="KilledByUserOrOtherApp" xml:space="preserve">
+    <value>was killed by user or another app.</value>
   </data>
 </root>

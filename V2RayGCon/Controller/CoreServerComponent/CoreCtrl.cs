@@ -8,7 +8,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
         VgcApis.Models.BaseClasses.ComponentOf<CoreServerCtrl>,
         VgcApis.Models.Interfaces.CoreCtrlComponents.ICoreCtrl
     {
-        Lib.V2Ray.Core coreServ;
+        Lib.V2Ray.Core v2rayCore;
         Service.Setting setting;
         Service.ConfigMgr configMgr;
 
@@ -26,7 +26,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
 
         public override void Prepare()
         {
-            this.coreServ = new Lib.V2Ray.Core(setting);
+            v2rayCore = new Lib.V2Ray.Core(setting);
 
             coreStates = container.GetComponent<CoreStates>();
             configer = container.GetComponent<Configer>();
@@ -35,17 +35,17 @@ namespace V2RayGCon.Controller.CoreServerComponent
 
         #region public mehtods
         // 非正常终止时调用 
-        public void SetTitle(string title) => coreServ.title = title;
+        public void SetTitle(string title) => v2rayCore.title = title;
 
         public void BindEvents()
         {
-            coreServ.OnLog += OnLogHandler;
-            coreServ.OnCoreStatusChanged += OnCoreStateChangedHandler;
+            v2rayCore.OnLog += OnLogHandler;
+            v2rayCore.OnCoreStatusChanged += OnCoreStateChangedHandler;
         }
         public void ReleaseEvents()
         {
-            coreServ.OnLog -= OnLogHandler;
-            coreServ.OnCoreStatusChanged -= OnCoreStateChangedHandler;
+            v2rayCore.OnLog -= OnLogHandler;
+            v2rayCore.OnCoreStatusChanged -= OnCoreStateChangedHandler;
         }
 
         public VgcApis.Models.Datas.StatsSample TakeStatisticsSample()
@@ -57,8 +57,8 @@ namespace V2RayGCon.Controller.CoreServerComponent
                 return null;
             }
 
-            var up = this.coreServ.QueryStatsApi(statsPort, true);
-            var down = this.coreServ.QueryStatsApi(statsPort, false);
+            var up = this.v2rayCore.QueryStatsApi(statsPort, true);
+            var down = this.v2rayCore.QueryStatsApi(statsPort, false);
             return new VgcApis.Models.Datas.StatsSample(up, down);
         }
 
@@ -69,7 +69,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
             done.WaitOne();
         }
 
-        public void StopCoreQuiet() => coreServ.StopCore();
+        public void StopCoreQuiet() => v2rayCore.StopCore();
 
         public void StopCore()
         {
@@ -88,7 +88,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
         public void RestartCoreThen(Action next) =>
             VgcApis.Libs.Utils.RunInBackground(() => RestartCoreWorker(next));
 
-        public bool IsCoreRunning() => coreServ.isRunning;
+        public bool IsCoreRunning() => v2rayCore.isRunning;
 
         public void RunSpeedTest() =>
             SpeedTestWorker(configer.GetConfig());
@@ -97,11 +97,15 @@ namespace V2RayGCon.Controller.CoreServerComponent
         #region private methods
         void OnCoreStateChangedHandler(object sender, EventArgs args)
         {
-            if (!coreServ.isRunning)
+            if (v2rayCore.isRunning)
+            {
+                container.InvokeEventOnCoreStart();
+            }
+            else
             {
                 coreStates.SetStatPort(0);
+                container.InvokeEventOnCoreStop();
             }
-            container.InvokeEventOnPropertyChange();
         }
 
         void SpeedTestWorker(string rawConfig)
@@ -144,10 +148,11 @@ namespace V2RayGCon.Controller.CoreServerComponent
         void StopCoreWorker(Action next)
         {
             container.InvokeEventOnCoreClosing();
-            coreServ.StopCoreThen(
+            v2rayCore.StopCoreThen(
                 () =>
                 {
-                    container.InvokeEventOnCoreStop();
+                    // Lib.V2Ray.Core will fire OnCoreStop
+                    // container.InvokeEventOnCoreStop();
                     next?.Invoke();
                 });
         }
@@ -161,12 +166,13 @@ namespace V2RayGCon.Controller.CoreServerComponent
                 return;
             }
 
-            coreServ.title = coreStates.GetTitle();
-            coreServ.RestartCoreThen(
+            v2rayCore.title = coreStates.GetTitle();
+            v2rayCore.RestartCoreThen(
                 finalConfig.ToString(),
                 () =>
                 {
-                    container.InvokeEventOnCoreStart();
+                    // Lib.V2Ray.Core will fire OnCoreStart
+                    // container.InvokeEventOnCoreStart();
                     next?.Invoke();
                 },
                 Lib.Utils.GetEnvVarsFromConfig(finalConfig));

@@ -8,15 +8,19 @@
 [6]: https://www.somsubhra.com/github-release-stats/?username=UudrSgMEZ&repository=V2RayGCon "Download Details"
 [7]: https://img.shields.io/github/license/UudrSgMEZ/V2RayGCon.svg "Licence Badge"
 [8]: https://github.com/UudrSgMEZ/V2RayGCon/blob/master/LICENSE "Licence"
+[9]: https://github.com/UudrSgMEZ/V2RayGCon/releases/latest 
 
-仅自用。Self-use only!  
 
-[\[下载 download\]](https://github.com/UudrSgMEZ/V2RayGCon/releases/latest)&nbsp;&nbsp;[\[手册 wiki\]](https://github.com/UudrSgMEZ/V2RayGCon/wiki)&nbsp;&nbsp;[\[唯一联系方式 issue\]](https://github.com/UudrSgMEZ/V2RayGCon/issues)  
+V2RayGCon是windos下[v2ray-core](https://v2ray.com)的第三方图形界面客户端。  
+
+[\[下载 download\]][9]&nbsp;&nbsp;[\[手册 wiki\]](https://github.com/UudrSgMEZ/V2RayGCon/wiki)&nbsp;&nbsp;[\[唯一联系方式 issue\]](https://github.com/UudrSgMEZ/V2RayGCon/issues)  
 
 ### 安装 Install
-下载解压到任意目录，然后，，，没有然后了。  
-(如果不知道下哪个就下V2RayGCon-box.zip)  
-Download and extract to any directory you like. That's it.  
+系统需要先装.net framework 4.5或以上（通常已经装了）。  
+接着下载[V2RayGCon-box.zip][9]并解压到任意目录，然后，，，没有然后了。  
+
+Download and extract [V2RayGCon-box.zip][9] to any directory you like. That's it.  
+Require .net framework 4.5 or higher.  
 
 ### 演示 Demo
 ![Demo v1.1.10 GIF](https://github.com/UudrSgMEZ/V2RayGCon/raw/master/screenshot/demo1.1.10.gif)  
