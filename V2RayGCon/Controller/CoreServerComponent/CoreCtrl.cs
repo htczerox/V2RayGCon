@@ -97,9 +97,6 @@ namespace V2RayGCon.Controller.CoreServerComponent
         #region private methods
         void OnCoreStateChangedHandler(object sender, EventArgs args)
         {
-            // this will ignore error
-            container.InvokeEventOnPropertyChange();
-
             if (v2rayCore.isRunning)
             {
                 container.InvokeEventOnCoreStart();

@@ -43,8 +43,22 @@ namespace V2RayGCon.Views.UserControls
         {
             SetStatusThen(string.Empty);
             RefreshUI(this, EventArgs.Empty);
-            this.coreServCtrl.OnPropertyChanged += RefreshUI;
+            BindCoreCtrlEvents();
             rtboxServerTitle.BackColor = this.BackColor;
+        }
+
+        private void ReleaseCoreCtrlEvents()
+        {
+            coreServCtrl.OnCoreStart -= RefreshUI;
+            coreServCtrl.OnCoreStop -= RefreshUI;
+            coreServCtrl.OnPropertyChanged -= RefreshUI;
+        }
+
+        private void BindCoreCtrlEvents()
+        {
+            coreServCtrl.OnCoreStart += RefreshUI;
+            coreServCtrl.OnCoreStop += RefreshUI;
+            coreServCtrl.OnPropertyChanged += RefreshUI;
         }
 
         #region interface VgcApis.Models.IDropableControl
@@ -321,8 +335,10 @@ namespace V2RayGCon.Views.UserControls
 
         public void Cleanup()
         {
-            this.coreServCtrl.OnPropertyChanged -= RefreshUI;
+            ReleaseCoreCtrlEvents();
         }
+
+
         #endregion
 
         #region UI event
