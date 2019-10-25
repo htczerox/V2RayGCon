@@ -708,4 +708,13 @@ No, abort.</value>
   <data name="KilledByUserOrOtherApp" xml:space="preserve">
     <value>was killed by user or another app.</value>
   </data>
+  <data name="SpeedtestPortNum" xml:space="preserve">
+    <value>Speedtest on port: </value>
+  </data>
+  <data name="AvgSpeedtestResult" xml:space="preserve">
+    <value>Average speedtest delay: </value>
+  </data>
+  <data name="CurSpeedtestResult" xml:space="preserve">
+    <value>Current speedtest delay: </value>
+  </data>
 </root>

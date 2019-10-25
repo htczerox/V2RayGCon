@@ -160,6 +160,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 Average speedtest delay:  的本地化字符串。
+        /// </summary>
+        internal static string AvgSpeedtestResult {
+            get {
+                return ResourceManager.GetString("AvgSpeedtestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cancel current download? 的本地化字符串。
         /// </summary>
         internal static string CancelDownload {
@@ -528,6 +537,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string CurrentCoreVerIs {
             get {
                 return ResourceManager.GetString("CurrentCoreVerIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Current speedtest delay:  的本地化字符串。
+        /// </summary>
+        internal static string CurSpeedtestResult {
+            get {
+                return ResourceManager.GetString("CurSpeedtestResult", resourceCulture);
             }
         }
         
@@ -1488,6 +1506,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string SpeedTestFinished {
             get {
                 return ResourceManager.GetString("SpeedTestFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Speedtest on port:  的本地化字符串。
+        /// </summary>
+        internal static string SpeedtestPortNum {
+            get {
+                return ResourceManager.GetString("SpeedtestPortNum", resourceCulture);
             }
         }
         
