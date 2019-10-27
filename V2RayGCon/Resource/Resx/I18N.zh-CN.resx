@@ -699,4 +699,13 @@ https://github.com/v2ray/v2ray-core</value>
   <data name="KilledByUserOrOtherApp" xml:space="preserve">
     <value>已被用户或其他程序杀死。</value>
   </data>
+  <data name="SpeedtestPortNum" xml:space="preserve">
+    <value>测速端口号：</value>
+  </data>
+  <data name="AvgSpeedtestResult" xml:space="preserve">
+    <value>平均测速延迟：</value>
+  </data>
+  <data name="CurSpeedtestResult" xml:space="preserve">
+    <value>当前测速延迟：</value>
+  </data>
 </root>

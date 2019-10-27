@@ -125,7 +125,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
                     continue;
                 }
 
-                logger.Log($"{curDelay.ToString()} ms");
+                logger.Log(I18N.CurSpeedtestResult + $"{curDelay.ToString()} ms");
                 lastDelay = VgcApis.Libs.Utils.SpeedtestMean(
                     lastDelay, curDelay, VgcApis.Models.Consts.Config.CustomSpeedtestMeanWeight);
             }
@@ -139,7 +139,7 @@ namespace V2RayGCon.Controller.CoreServerComponent
             }
             coreStates.SetStatus(lastResult);
             coreStates.SetSpeedTestResult(lastDelay);
-            logger.Log(lastResult);
+            logger.Log(I18N.AvgSpeedtestResult + lastResult + @"ms");
         }
 
         void OnLogHandler(object sender, VgcApis.Models.Datas.StrEvent arg) =>
