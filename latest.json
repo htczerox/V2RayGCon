@@ -1,14 +1,15 @@
 {
-  "version": "1.2.5.0",
-  "md5": "df6decd69cca7918223a74af06ee38f1",
+  "version": "1.2.6.0",
+  "md5": "e451ba139914ae5c896e745c47131bcf",
   "warnings": [
   ],
   "changes": [
-      "全局代理模式角标从红色改为蓝色",
-      "支持从托盘图标切换服务器",
-      "支持从托盘图标切换代理模式（需开启ProxySetter插件）",
+      "修复issue #7解析vmess的bug",
+      "在日志中显示测速端口",
+      "细化非正常终止提示",
       "",
-      "Corner mark of global proxy mode changes from red to blue.",
-      "Notify icon menu supports switching server"
+      "Fix issue #7, vmess decoding bug.",
+      "Log port number while speed testing.",
+      "Show details if v2ray-core exited unexpectly."
   ]
 }
