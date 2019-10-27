@@ -373,6 +373,11 @@ namespace V2RayGCon.Service
             EventHandler<VgcApis.Models.Datas.StrEvent> logDeliever)
         {
             var port = VgcApis.Libs.Utils.GetFreeTcpPort();
+
+            // for debugging 
+            logDeliever?.Invoke(this, new VgcApis.Models.Datas.StrEvent(
+                I18N.SpeedtestPortNum + port.ToString()));
+
             var speedTestConfig = CreateSpeedTestConfig(
                 rawConfig, port, isUseCache, isInjectSpeedTestTpl, isInjectActivateTpl);
 

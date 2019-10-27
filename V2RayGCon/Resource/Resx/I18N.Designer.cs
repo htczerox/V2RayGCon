@@ -160,6 +160,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 Average speedtest delay:  的本地化字符串。
+        /// </summary>
+        internal static string AvgSpeedtestResult {
+            get {
+                return ResourceManager.GetString("AvgSpeedtestResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cancel current download? 的本地化字符串。
         /// </summary>
         internal static string CancelDownload {
@@ -174,6 +183,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string CannotParseJson {
             get {
                 return ResourceManager.GetString("CannotParseJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 can not start. Please check logs. 的本地化字符串。
+        /// </summary>
+        internal static string CanNotStartPlsCheckLogs {
+            get {
+                return ResourceManager.GetString("CanNotStartPlsCheckLogs", resourceCulture);
             }
         }
         
@@ -519,6 +537,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string CurrentCoreVerIs {
             get {
                 return ResourceManager.GetString("CurrentCoreVerIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Current speedtest delay:  的本地化字符串。
+        /// </summary>
+        internal static string CurSpeedtestResult {
+            get {
+                return ResourceManager.GetString("CurSpeedtestResult", resourceCulture);
             }
         }
         
@@ -929,6 +956,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 can not start. Please check configuration. 的本地化字符串。
+        /// </summary>
+        internal static string HasFaultyConfig {
+            get {
+                return ResourceManager.GetString("HasFaultyConfig", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Help 的本地化字符串。
         /// </summary>
         internal static string Help {
@@ -979,6 +1015,15 @@ namespace V2RayGCon.Resource.Resx {
         internal static string InjectPackagingImportsFail {
             get {
                 return ResourceManager.GetString("InjectPackagingImportsFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 was killed by user or another app. 的本地化字符串。
+        /// </summary>
+        internal static string KilledByUserOrOtherApp {
+            get {
+                return ResourceManager.GetString("KilledByUserOrOtherApp", resourceCulture);
             }
         }
         
@@ -1465,6 +1510,15 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
+        ///   查找类似 Speedtest on port:  的本地化字符串。
+        /// </summary>
+        internal static string SpeedtestPortNum {
+            get {
+                return ResourceManager.GetString("SpeedtestPortNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Start 的本地化字符串。
         /// </summary>
         internal static string Start {
@@ -1652,7 +1706,7 @@ namespace V2RayGCon.Resource.Resx {
         }
         
         /// <summary>
-        ///   查找类似 exit abnormally.
+        ///   查找类似 {0} exited with error code {1}!
         ///Please check server configuration and log. 的本地化字符串。
         /// </summary>
         internal static string V2rayCoreExitAbnormally {

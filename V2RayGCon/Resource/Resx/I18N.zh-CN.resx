@@ -413,7 +413,7 @@ https://github.com/v2ray/v2ray-core</value>
     <value>附加到v2ray-core进程失败！</value>
   </data>
   <data name="V2rayCoreExitAbnormally" xml:space="preserve">
-    <value>非正常终止！
+    <value>{0}错误代码{1}！
 请检查服务器配置及日志。</value>
   </data>
   <data name="Options" xml:space="preserve">
@@ -689,5 +689,23 @@ https://github.com/v2ray/v2ray-core</value>
   </data>
   <data name="StopAllServers" xml:space="preserve">
     <value>全部停止</value>
+  </data>
+  <data name="CanNotStartPlsCheckLogs" xml:space="preserve">
+    <value>无法启动，请检查日志。</value>
+  </data>
+  <data name="HasFaultyConfig" xml:space="preserve">
+    <value>配置有误，无法启动。</value>
+  </data>
+  <data name="KilledByUserOrOtherApp" xml:space="preserve">
+    <value>已被用户或其他程序杀死。</value>
+  </data>
+  <data name="SpeedtestPortNum" xml:space="preserve">
+    <value>测速端口号：</value>
+  </data>
+  <data name="AvgSpeedtestResult" xml:space="preserve">
+    <value>平均测速延迟：</value>
+  </data>
+  <data name="CurSpeedtestResult" xml:space="preserve">
+    <value>当前测速延迟：</value>
   </data>
 </root>

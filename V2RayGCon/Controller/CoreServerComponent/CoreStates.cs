@@ -232,6 +232,10 @@ namespace V2RayGCon.Controller.CoreServerComponent
 
         int statPort = -1;
         public int GetStatPort() => statPort;
+
+        /// <summary>
+        /// less or eq 0 means unavailable
+        /// </summary>
         public void SetStatPort(int port) => statPort = port;
 
         string status = "";

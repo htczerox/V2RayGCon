@@ -219,7 +219,8 @@ namespace V2RayGCon.Service.ShareLinkComponents
                     streamToken["quicSettings"]["key"] = vmess.path; // quic.key
                     break;
                 case "tcp":
-                    streamToken["tcpSettings"]["header"]["type"] = vmess.type;
+                    // issue #7 should keep header.type = none
+                    // streamToken["tcpSettings"]["header"]["type"] = vmess.type;
                     break;
                 case "tcp_http":
                     streamToken["tcpSettings"]["header"]["type"] = vmess.type;

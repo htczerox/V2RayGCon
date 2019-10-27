@@ -25,13 +25,6 @@ Require .net framework 4.5 or higher.
 ### 演示 Demo
 ![Demo v1.1.10 GIF](https://github.com/UudrSgMEZ/V2RayGCon/raw/master/screenshot/demo1.1.10.gif)  
 
-### 佛系更新说明
-经过无数个日夜的奋战，我开发出了 ~谁用谁发财手机壳~ 一个船新的科学上网软件。  
-但是特征明显、效率低下、炒鸡男用，所以不能公布出来。  
-这里主要告诉大家，这个项目将进入佛系更新阶段。  
-具体来说issue会回复得慢些，更新会少些。  
-2019-09
-  
 ### 引用按字母排序 Credits (in alphabetical order)  
 [2dust/v2rayN](https://github.com/2dust/v2rayN) vmess分享链接及订阅格式  
 [Ahmad45123/AutoCompleteMenu-ScintillaNET](https://github.com/Ahmad45123/AutoCompleteMenu-ScintillaNET) 自动补全  

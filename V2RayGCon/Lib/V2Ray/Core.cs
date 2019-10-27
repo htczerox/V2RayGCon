@@ -22,7 +22,8 @@ namespace V2RayGCon.Lib.V2Ray
         Process v2rayCore;
         static object coreLock = new object();
         Service.Setting setting;
-        string config;
+
+        bool isForcedExit = false;
 
         static VgcApis.Libs.Tasks.Bar globalCoreStartStopToken = new VgcApis.Libs.Tasks.Bar();
 
@@ -31,7 +32,6 @@ namespace V2RayGCon.Lib.V2Ray
             isRunning = false;
             isCheckCoreReady = false;
             v2rayCore = null;
-            config = string.Empty;
             this.setting = setting;
         }
 
@@ -325,6 +325,8 @@ namespace V2RayGCon.Lib.V2Ray
         void KillCore()
         {
             Debug.WriteLine("Kill core!");
+
+            isForcedExit = true;
             AutoResetEvent finished = new AutoResetEvent(false);
 
             SendLog(I18N.AttachToV2rayCoreProcessFail);
@@ -380,9 +382,41 @@ namespace V2RayGCon.Lib.V2Ray
             }
         }
 
-        void ShowExitErrorMessage()
+        void ShowExitErrorMessage(int exitCode)
         {
-            MessageBox.Show(title + I18N.V2rayCoreExitAbnormally);
+            /*
+            * https://stackoverflow.com/questions/4344923/process-exit-code-when-process-is-killed-forcibly
+            * 1: Killed forcibly.
+            */
+
+            // ctrl + c not working
+            if (isForcedExit && exitCode == 1)
+            {
+                return;
+            }
+
+            /*
+             * v2ray-core/main/main.go
+             * 23: Configuration error.
+             * -1: Failed to start.
+             */
+            string msg = string.Format(I18N.V2rayCoreExitAbnormally, title, exitCode);
+            switch (exitCode)
+            {
+                case 1:
+                    msg = title + @" " + I18N.KilledByUserOrOtherApp;
+                    break;
+                case 23:
+                    msg = title + @" " + I18N.HasFaultyConfig;
+                    break;
+                case -1:
+                    msg = title + @" " + I18N.CanNotStartPlsCheckLogs;
+                    break;
+                default:
+                    break;
+            }
+
+            MessageBox.Show(msg);
         }
 
         void OnCoreExited(object sender, EventArgs args)
@@ -394,7 +428,7 @@ namespace V2RayGCon.Lib.V2Ray
             if (err != 0)
             {
                 v2rayCore.Close();
-                VgcApis.Libs.Utils.RunInBackground(() => ShowExitErrorMessage());
+                VgcApis.Libs.Utils.RunInBackground(() => ShowExitErrorMessage(err));
             }
 
             // SendLog("Exit code: " + err);
@@ -418,7 +452,8 @@ namespace V2RayGCon.Lib.V2Ray
 
         void StartCore(string config, Dictionary<string, string> envs = null)
         {
-            this.config = config;
+            isForcedExit = false;
+
             v2rayCore = CreateV2RayCoreProcess();
             InjectEnv(v2rayCore, envs);
             BindEvents(v2rayCore);
